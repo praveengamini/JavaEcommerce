@@ -1,0 +1,75 @@
+body{
+    background-image: url(./img/men_wallpaper.jpg);
+    background-attachment: fixed;
+    background-position: center;
+}
+.spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    inset: 0;
+    margin: auto;
+    position: absolute;
+    
+}
+.group{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem;
+    width: 350px;
+    background-color: rgb(168, 219, 250);
+    
+    border: 2px solid black;
+}
+.item_men{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border: 2px solid black;
+}
+.d-block{
+    height: 350px;
+}
+button{
+    font-family: "Itim", cursive;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.5rem;
+    background-color: rgb(243, 206, 138);
+    border-radius: 20px;
+  }
+.item_name {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.discount{
+    color: red;
+    font-size: 1.3rem;
+}
+h1{
+   
+    font-size: 4rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 5%;
+    font-weight: 800;
+
+}
+.rating{
+    color: rgb(255, 207, 15);
+    
+}
+
+.collection{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+button:hover{
+    opacity: 0.7;
+}
+button:active{
+    
+    background-color: orange;
+}

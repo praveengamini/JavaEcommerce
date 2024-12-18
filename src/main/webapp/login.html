@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 350px;
+    }
+
+    .login-container h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .login-container p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .bottom-text {
+      margin-top: 20px;
+    }
+
+    .bottom-text a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .bottom-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+ <div class="login-container">
+    <h2>Welcome Back!</h2>
+    <p>Please login to continue shopping</p>
+    <form id="login-form" action="login" method="post"> <!-- Changed action to the servlet URL -->
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email address" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="bottom-text">
+      <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+      <p>Forgot your password? <a href="forgot_password.html">Reset here</a></p>
+    </div>
+  </div>
+  <script>
+  </script>
+</body>
+</html>

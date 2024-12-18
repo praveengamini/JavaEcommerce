@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUICKMART.com//The online shopping website..</title>
+    <link rel="stylesheet" href="front_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head><body>
+    <div class="marquee">
+        <div style="display: flex;flex-direction: row;">
+            <div style="width: 100%;border-right: 5px solid black;"><marquee scrollamount="120" direction="left"><img class="ferrari" src="./img/car.jpeg"></marquee>
+            </div>
+            <div style="width:100%;"><marquee scrollamount="100" direction="right"><img src="./img/delivery.jpeg"></marquee></div>
+        </div>
+        <div class="in_scroll2" >QUICK-MART</div>
+        <div style="display: flex;flex-direction: row;">
+            <div style="width: 30%;border-right: 5px solid black;"><marquee class="in_scroll3" scrollamount="100"><img src="./img/phone1.jpeg"></marquee>
+            </div>
+            <div style="width: 70%;"><marquee scrollamount="100" direction="right"><img src="./img/laptop.jpeg"></marquee>
+            </div>
+        </div>
+        <div >
+        <div style="display: flex;flex-direction: row;">
+            <div style="width: 60%; border-right: 5px solid black;"><marquee scrollamount="130" direction="left"><img src="./img/shoes.jpeg"></marquee></div>
+            <div style="width:40%;"><marquee scrollamount="100"  direction="right"><img src="./img/shirt.jpeg"> </marquee></div>
+        </div>
+    </div>
+    </div>
+    <div class="loader"></div>
+    <div class="next_page_loader"></div>
+</body>
+
+<style>
+
+  .scroll1{
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: aquamarine;
+  }
+  .ferrari{
+    height: 150px;
+    width: 400px;
+  }
+.in_scroll2{
+    display: flex;
+    justify-content: center;
+    font-size: 70px;
+    font-family: cursive;
+    background-color: gold;
+}
+.in_scroll3{
+    margin-top: 50px;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    margin:22% 45%;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.marquee{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.next_page_loader{
+    height:100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    /* background-image: url(img/3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+</style>
+<script>
+    $(".loader").hide("")
+    $(".next_page_loader").hide("")
+    $(document).ready(
+        
+        setTimeout(function(){
+            $(".in_scroll2").slide("")
+        },500),
+        setTimeout(function(){
+            $(".marquee").hide("")
+            $(".loader").show("")
+        },1500),
+        setTimeout(function(){
+            $(".loader").hide("")
+            window.location.href="login.html"
+        },2500),
+    )
+</script>

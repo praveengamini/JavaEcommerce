@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUICKMART.com//The online shopping website..</title>
+    <link rel="stylesheet" href="front_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+#viewCartBtn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#viewCartBtn:hover {
+  background-color: #45a049;
+}
+
+</style>
+</head>
+<body class="body">
+    
+    <div class="front_page_total">
+        
+
+<div class="front_page">
+    <h1><u>QUICK-MART <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="tag1" viewBox="0 0 16 16">
+        <path d="M3 2v4.586l7 7L14.586 9l-7-7zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586z"/>
+        <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1z"/>
+      </svg></u></h1>
+    <marquee scrollamount="30" direction="left" class="scroll1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+      </svg>..discount awaits...shop now for the best possible offers..<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+      </svg></marquee>
+
+
+
+      <a href="cart.html"><button id="viewCartBtn">View Cart</button></a>
+
+      <div><button onclick="menubar()" class="menu"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+      </svg>menu</button></div>
+      <div class="menubar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+      </div>
+
+      <div style="padding:50px; overflow: auto; display: flex;flex-direction: row; gap: 50px;margin: 30px;">
+       
+        <div>
+            <a onclick="next_page_interval()"><div class="circle circle1"><img src=""></div></a>
+            <div class="circle_title">Men</div>
+        </div>
+        <div>
+            <a href="women.html"><div class="circle circle2"><img src=""></div></a>
+            <div class="circle_title">Women</div>
+        </div>
+        <div>
+            <a href="children.html"><div class="circle circle3"><img src=""></div></a>
+            <div class="circle_title">Children</div>
+        </div>
+        <div>
+            <a href="electronics.html"><div class="circle circle4"><img src=""></div></a>
+            <div class="circle_title">Electronics</div>
+        </div>
+        <div>
+            <a href="footwear.html"><div class="circle circle5"><img src=""></div></a>
+            <div class="circle_title">Footwear</div>
+
+        </div>
+        <div>
+            <a href="kitchen.html"><div class="circle circle6"><img src=""></div></a>
+            <div class="circle_title">Kitchen</div>
+
+        </div>
+        <div    ><button onclick="circle()" style="border-radius: 15px; padding: 0px; border: none;"><svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="arrow" viewBox="0 0 16 16">
+            <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0z"/>
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+          </svg></button></div>
+
+          
+      </div>
+        <div class="sections_list">
+            <div class="shoe_offers sections"></div>
+            <div class="sections"></div>
+            <div style="display: flex;flex-direction: row;gap: 10px;">
+                <div style="width: 50%;" class="sections"></div>
+                <div style="width: 50%;"class="sections"></div>
+            </div>
+        </div>
+</div>
+</div>
+  <div class="next_page_interval"></div>  
+</body>
+</html>
+<script>
+    function next_page_interval(){
+        $(".front_page_total").hide("left"),    
+        setTimeout(function(){
+            $(".next_page_interval").show("")
+        },1000)
+        setTimeout(function(){
+            window.location.href="men.html"
+        },2000)
+    }
+     function menubar(){
+        $(".menubar").toggle("left")
+        setTimeout(function(){
+            $(".menubar").hide("left")
+        },5000)
+    }
+    function circle(){
+        $(".circle").slideToggle("up")
+    }
+   $(document).ready(
+    
+    $(".next_page_interval").hide(),
+   $(".menubar").hide(),
+   $(".circle").hide(),
+   $(".sections").hide(),
+        $(".in_scroll2").hide(),
+        setTimeout(function(){
+            $(".in_scroll2").show("slide")
+        },500),
+    $(".front_page").hide(),
+    $(".loader").hide(),
+    setTimeout(function(){
+        $(".marquee").toggle("slide")
+    },2000),
+    setTimeout(function(){
+        $(".loader").toggle("slide")
+    },2000),
+
+    setTimeout(function(){
+        $("body").addClass("added_background")
+    },2000),
+    setTimeout(function() {
+        $(".loader").toggle("slide")
+    },3000),
+    setTimeout(function(){
+        $(".front_page").toggle("slide")
+    },3000),
+    setTimeout(function(){
+        $(".circle").show("slide")
+    },3500),
+    setTimeout(function(){
+        $(".sections").show("slide")
+    },4000)
+)
+</script>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .remove-btn {
+            color: red;
+            cursor: pointer;
+        }
+        .buy-now-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .buy-now-btn:hover {
+            background-color: #0056b3;
+        }
+        .buy-now-container {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 400px; /* Adjust width */
+            max-width: calc(100% - 40px);
+        }
+        .buy-now-container.show {
+            display: block;
+        }
+        .payment-options {
+            margin-top: 10px;
+        }
+        .payment-option {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .payment-option:hover {
+            background-color: #f0f0f0;
+        }
+        .payment-dropdown {
+            margin-top: 10px;
+        }
+        .payment-dropdown select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 16px;
+        }
+        .exit-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: red;
+            font-size: 18px;
+        }
+        .total-cost {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+
+        <div id="cartItems">
+            <!-- Cart items will be displayed here -->
+        </div>
+
+        <!-- Total cost of items -->
+        <div class="total-cost" id="totalCost"></div>
+
+        <!-- Buy Now button -->
+        <button class="buy-now-btn" onclick="togglePaymentOptions()">Buy Now</button>
+
+        <!-- Payment options container -->
+        <div class="buy-now-container" id="paymentOptions">
+            <span class="exit-btn" onclick="togglePaymentOptions()">X</span>
+            <div class="payment-options">
+                <div class="payment-option" onclick="selectPaymentMethod('Paytm')">Pay with Paytm</div>
+                <div class="payment-option" onclick="selectPaymentMethod('PhonePe')">Pay with PhonePe</div>
+                <div class="payment-option" onclick="selectPaymentMethod('Google Pay')">Pay with Google Pay</div>
+                <div class="payment-option" onclick="selectPaymentMethod('BHIM')">Pay with BHIM</div>
+            </div>
+            <div class="payment-dropdown">
+                <select onchange="selectPaymentMethod(this.value)">
+                    <option value="">Select Card</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="American Express">American Express</option>
+                    <!-- Add more card options here -->
+                </select>
+            </div>
+        </div>
+    </div>
+<!-- QR code image -->
+	<img id="qrCode" src="" alt="QR Code" style="display: none;
+	width:500px;
+	height:500px;
+	margin-right:-50%;">
+    <script>
+        // Retrieve items from local storage
+        var cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Display items in the cart
+        var cartItemsContainer = document.getElementById("cartItems");
+        cart.forEach(function(item, index) {
+            var itemElement = document.createElement("div");
+            itemElement.classList.add("cart-item");
+            itemElement.innerHTML = `
+                <div>${item.name}</div>
+                <div>${item.price}</div>
+                <div class="remove-btn" onclick="removeItem(${index})">Remove</div>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+        });
+
+        // Function to remove an item from the cart
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            // Refresh the cart display
+            renderCart();
+            // Recalculate total cost
+            calculateTotalCost();
+        }
+
+        // Function to render cart items
+        function renderCart() {
+            cartItemsContainer.innerHTML = "";
+            cart.forEach(function(item, index) {
+                var itemElement = document.createElement("div");
+                itemElement.classList.add("cart-item");
+                itemElement.innerHTML = `
+                    <div>${item.name}</div>
+                    <div>${item.price}</div>
+                    <div class="remove-btn" onclick="removeItem(${index})">Remove</div>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        // Function to calculate total cost
+        function calculateTotalCost() {
+            var totalCost = cart.reduce(function(acc, curr) {
+                return acc + curr.price;
+            }, 0);
+            document.getElementById("totalCost").textContent = "Total Cost: " + totalCost;
+        }
+
+        // Initial calculation of total cost
+        calculateTotalCost();
+
+        // Function to toggle payment options
+        function togglePaymentOptions() {
+            var paymentOptions = document.getElementById("paymentOptions");
+            paymentOptions.classList.toggle("show");
+        }
+
+        // Function to select payment method
+        function selectPaymentMethod(method) {
+            if (method) {
+                alert("Selected payment method: " + method);
+                // You can add further logic here based on the selected payment method
+            }
+        }
+        function selectPaymentMethod(method) {
+            if (method) {
+                if (method === "Paytm" || method === "PhonePe" || method === "Google Pay" || method === "BHIM") {
+                    // If the selected payment method is UPI, display the QR code image
+                    document.getElementById("qrCode").src = "qrcode.jpg";
+                    document.getElementById("qrCode").style.display = "block";
+                } else {
+                    // Hide the QR code image for non-UPI payment methods
+                    document.getElementById("qrCode").style.display = "none";
+                }
+                alert("Selected payment method: " + method);
+                // You can add further logic here based on the selected payment method
+            }
+        }
+    </script>
+</body>
+</html>
